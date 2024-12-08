@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты погоды</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to right,  #6a82fb, #fc5c7d);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #f1c40f;
+        }
+
+        .weather-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+
+        .weather-section:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .weather-section h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #e67e22;
+        }
+
+        .weather-section p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            color: #fff;
+            text-decoration: none;
+            background-color: #3498db;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Результаты проверки погоды</h2>
+
+        <div class="weather-section">
+            <h3>Начальная точка: {{ start_city }}</h3>
+            <p><strong>Температура:</strong> {{ start_details.temperature }}°C</p>
+            <p><strong>Скорость ветра:</strong> {{ start_details.wind_speed }} км/ч</p>
+            <p><strong>Вероятность осадков:</strong> {{ start_details.precipitation_probability }}%</p>
+            <p><strong>Условия:</strong> {{ start_details.conditions }}</p>
+        </div>
+
+        <div class="weather-section">
+            <h3>Конечная точка: {{ end_city }}</h3>
+            <p><strong>Температура:</strong> {{ end_details.temperature }}°C</p>
+            <p><strong>Скорость ветра:</strong> {{ end_details.wind_speed }} км/ч</p>
+            <p><strong>Вероятность осадков:</strong> {{ end_details.precipitation_probability }}%</p>
+            <p><strong>Условия:</strong> {{ end_details.conditions }}</p>
+        </div>
+
+        <a href="/">Вернуться назад</a>
+    </div>
+</body>
+</html>
